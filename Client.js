@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
 class Client {
     constructor(url = 'http://localhost:3000') {
