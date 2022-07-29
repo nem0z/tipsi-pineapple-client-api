@@ -1,4 +1,6 @@
-let fetcher = fetch ?? await import('node-fetch');
+if(!fetch) {
+    const fetch = await import('node-fetch');
+}
 
 class Client {
     constructor(url = 'http://localhost:3000') {
@@ -6,7 +8,7 @@ class Client {
     }
 
     request(url, params = null) {
-        return fetcher(url, params)
+        return fetch(url, params)
         .then(res => res.json())
         .catch(err => {
             // manage error here
