@@ -1,0 +1,26 @@
+{
+  "name": "pineapple-client",
+  "version": "1.0.0",
+  "description": "A client module for pineapple API for Node and JS Native apps",
+  "main": "Client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nem0z/tipsi-pineapple-client-api.git"
+  },
+  "keywords": [
+    "pineapple",
+    "client",
+    "api",
+    "node",
+    "js"
+  ],
+  "author": "nem0z",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nem0z/tipsi-pineapple-client-api/issues"
+  },
+  "homepage": "https://github.com/nem0z/tipsi-pineapple-client-api#readme"
+}
