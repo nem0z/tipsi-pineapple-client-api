@@ -1,6 +1,6 @@
-if(!fetch) {
-    const fetch = await import('node-fetch');
-}
+const fetcher = typeof(fetch) !== 'undefined' ? fetch : await import('node-fetch').then(module => module.default);
+
+console.log(fetcher);
 
 class Client {
     constructor(url = 'http://localhost:3000') {
@@ -8,7 +8,7 @@ class Client {
     }
 
     request(url, params = null) {
-        return fetch(url, params)
+        return fetcher(url, params)
         .then(res => res.json())
         .catch(err => {
             // manage error here
