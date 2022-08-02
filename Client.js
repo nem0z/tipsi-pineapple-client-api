@@ -1,7 +1,5 @@
 const fetcher = typeof(fetch) !== 'undefined' ? fetch : await import('node-fetch').then(module => module.default);
 
-console.log(fetcher);
-
 class Client {
     constructor(url = 'http://localhost:3000') {
         this.baseURL = url;
