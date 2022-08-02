@@ -5,13 +5,13 @@ class Client {
         this.baseURL = url;
     }
 
-    request(url, params = null) {
+    request(url, params = {}) {
         return fetcher(url, params)
-        .then(res => res.json())
-        .catch(err => {
-            // manage error here
-            return err;
-        });
+            .then(res => res.json())
+            .catch(err => {
+                // manage error here
+                return err;
+            });
     }
 
     getProducts(id = null) {
@@ -30,9 +30,9 @@ class Client {
         const endpoint = `${this.baseURL}/order`;
 
         const params = {
-            method: 'POST',
-            body: JSON.stringify(order),
-            headers: { "Content-Type": "application/json" }
+            "method": 'POST',
+            "body": JSON.stringify(order),
+            "headers": { "Content-Type": "application/json" }
         };
 
         return this.request(endpoint, params);

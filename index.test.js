@@ -1,6 +1,7 @@
 import Client from './Client.js';
 
 const client = new Client();
+console.log(client);
 
 const newOrder = [
     {
@@ -13,5 +14,5 @@ const newOrder = [
     }
 ];
 
-const createdOrder = await client.createOrder(newOrder);
-console.log(createdOrder);
+const products = await client.getProducts();
+console.log(products);
