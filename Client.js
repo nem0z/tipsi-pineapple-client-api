@@ -3,7 +3,7 @@ class Client {
         this.baseURL = url;
     }
 
-    request(url, params = {}) {
+    async request(url, params = {}) {
         const fetcher = typeof(fetch) !== 'undefined' ? fetch : await import('node-fetch').then(module => module.default);
 
         return fetcher(url, params)
