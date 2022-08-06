@@ -1,12 +1,21 @@
 class Client {
     constructor(url = 'http://localhost:3000') {
         this.baseURL = url;
+        this.nodeFetch = null;
+    }
+
+    async getFetch() {
+        if(fetch) return fetch;
+        if(this.nodeFetch) return this.nodeFetch;
+
+        this.nodeFetch = await import('node-fetch');
+        return this.nodeFetch;
     }
 
     async request(url, params = {}) {
-        const fetcher = typeof(fetch) !== 'undefined' ? fetch : await import('node-fetch').then(module => module.default);
+        const fetch = await this.getFetch()
 
-        return fetcher(url, params)
+        return fetch(url, params)
             .then(res => res.json())
             .catch(err => {
                 // manage error here
