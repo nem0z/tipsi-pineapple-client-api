@@ -13,9 +13,8 @@ class Client {
     }
 
     async request(url, params = {}) {
-        const fetch = await this.getFetch()
 
-        return fetch(url, params)
+        return (await this.getFetch())(url, params)
             .then(res => res.json())
             .catch(err => {
                 // manage error here
